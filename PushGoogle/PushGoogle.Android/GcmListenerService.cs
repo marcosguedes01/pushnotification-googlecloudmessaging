@@ -4,6 +4,7 @@ using Android.Content;
 using Android.Gms.Gcm;
 using Android.OS;
 using Android.Util;
+using Xamarin.Forms;
 
 namespace PushGoogle.Droid
 {
@@ -15,7 +16,11 @@ namespace PushGoogle.Droid
             var message = data.GetString("message");
             //Log.Debug("MyGcmListenerService", "From:    " + from);
             //Log.Debug("MyGcmListenerService", "Message: " + message);
+            
             SendNotification(message);
+
+            if (App.objMessageAction == null) { App.objMessageAction = new MessagingAction(); }
+            App.objMessageAction.Message = message;
         }
 
         void SendNotification(string message)
@@ -30,7 +35,7 @@ namespace PushGoogle.Droid
                 .SetContentText(message)
                 .SetAutoCancel(true)
                 .SetContentIntent(pendingIntent);
-
+            
             var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
             notificationManager.Notify(0, notificationBuilder.Build());
         }

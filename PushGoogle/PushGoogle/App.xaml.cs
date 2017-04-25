@@ -9,11 +9,14 @@ namespace PushGoogle
 {
 	public partial class App : Application
 	{
-		public App ()
+        public static MessagingAction objMessageAction;
+        public App ()
 		{
-			InitializeComponent();
+            InitializeComponent();
 
-			MainPage = new PushGoogle.MainPage();
+            if (objMessageAction == null) { objMessageAction = new MessagingAction(); }
+            
+            MainPage = new MainPage(objMessageAction.Message);
 		}
 
 		protected override void OnStart ()

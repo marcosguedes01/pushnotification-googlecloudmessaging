@@ -7,7 +7,7 @@ using Android.OS;
 
 namespace PushGoogle.Droid
 {
-    [Activity (Label = "PushGoogle", Icon = "@drawable/icon", Theme="@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity (Label = "Push Google", Icon = "@drawable/icon", Theme="@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -16,15 +16,15 @@ namespace PushGoogle.Droid
 			ToolbarResource = Resource.Layout.Toolbar; 
 
 			base.OnCreate (bundle);
+            
+            global::Xamarin.Forms.Forms.Init (this, bundle);
+			LoadApplication (new PushGoogle.App ());
 
             if (IsPlayServicesAvailable())
             {
                 var intent = new Intent(this, typeof(RegistrationIntentService));
                 StartService(intent);
             }
-
-            global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new PushGoogle.App ());
         }
 
         public bool IsPlayServicesAvailable()

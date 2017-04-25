@@ -10,7 +10,7 @@ namespace PushSendTest
 {
     public partial class Form1 : Form
     {
-        public const string API_KEY = "YOUR_API_KEY";
+        public const string API_KEY = "AIzaSyChLMPZ8MKz6izwh2AdbQJHxZHQJlxbINo";
         public const string MESSAGE = "Hello, Xamarin!";
 
         public Form1()

@@ -22,7 +22,7 @@ namespace PushGoogle.Droid
                 {
                     var instanceID = InstanceID.GetInstance(this);
                     var token = instanceID.GetToken(
-                        "YOUR_SENDER_ID",
+                        "717591490343", /* "YOUR_SENDER_ID" */
                         GoogleCloudMessaging.InstanceIdScope, null);
 
                     //Log.Info("RegistrationIntentService", "GCM Registration Token: " + token);
